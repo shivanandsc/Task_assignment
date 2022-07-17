@@ -17,6 +17,8 @@ def add_task(request):
         return redirect("homepage")
 
         
-    return render(request,"addtask.html",{'form':task})  
+    return render(request,"addtask.html",{'form':task}) 
+
+  
 
 
