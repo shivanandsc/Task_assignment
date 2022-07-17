@@ -1,0 +1,62 @@
+{% extends 'header.html' %}
+{% load static %}
+  {% block content %}
+
+
+  <div >
+    <ul >
+      {% if user.is_authenticated %}
+      
+      <li >
+        <a  href="/logout">Logout</a>
+      </li>
+      <li >
+        <a href="#">Welcome, {{user.username}}</a>
+      </li>
+
+        <button type="button">
+    <a href="{% url 'add_task' %}">Add task</a>
+</button>
+<h2 ><u>Table Head:</u></h2><br>			
+<table >
+	<thead>
+	<tr>
+		<th>Task Name </th>
+		<th>Task Description</th>
+		<th>Assign to</th>
+		<th>Date</th>
+		<th>Status</th>
+    <th>Action</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- jinja2 Technique -->
+	{% if d %}
+	{% for i in d %}
+	<tr>
+		<td>{{i.task_name}}</td>
+		<td>{{i.task_description}}</td>
+		<td>{{i.assign_to}}</td>
+		<td>{{i.date}}</td>
+		<td>{{i.status}}</td>
+    <td>{{i.action}}</td>
+
+	</tr>
+	{% endfor %}
+	{% endif %}
+	</tbody>
+</table>
+</div>
+
+      {% else %}
+
+      <li >
+        <a>Please  </a>
+        <a href="/login">Login/</a><a href="/register">register</a><a> to view/add new tasks.  </a>
+      </li>
+
+      {% endif %}
+    </ul>
+  </div>
+
+  {% endblock %} 
