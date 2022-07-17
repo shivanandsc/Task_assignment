@@ -13,7 +13,7 @@ def add_task(request):
         form = TaskForm(request.POST)
         form.save()
       
-        send_mail(request.POST['task_name'], request.POST['task_description'], 'shivanandsc123@gmail.com', [ User.objects.get(id=request.POST['assign_to']).email], fail_silently=False)
+        send_mail(request.POST['task_name'], request.POST['task_description'], 'useremailid@gmail.com', [ User.objects.get(id=request.POST['assign_to']).email], fail_silently=False)
         return redirect("homepage")
 
         
